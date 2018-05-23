@@ -63,19 +63,23 @@ class App extends Component {
         <AddItem
           onAdd={this.onAdd}/>
         <h3>Products</h3>
+        <div class="row">
         {
           this.state.products.map(product => {
             return (
-              <ProductItem 
-                key={product.name} 
-                {...product}
-                onDelete={this.onDelete}
-                onEdit = {this.onEdit}/>
+              <div className="product col-3">
+                <ProductItem 
+                  key={product.name} 
+                  {...product}
+                  onDelete={this.onDelete}
+                  onEdit = {this.onEdit}/>
+              </div>
             );
           })
         }
+        </div>
       </div>
-    );
+    )
   }
 }
 

@@ -14,18 +14,19 @@ class AddItem extends Component {
     }
     render() {
         return (
-            <form onSubmit={this.onSubmit}>
-                <h3>Add Product</h3>
-                <div>
-                    <label>Name </label>
-                    <input ref={nameInput => this.nameInput = nameInput} type="text"/>
+            <form id="create-card" class="card form" onSubmit={this.onSubmit}>
+                <h3 className="card-header">Add Product</h3>
+                <div className="card-body">
+                    <div className="form-group">
+                        <label>Name</label>
+                        <input className="form-control" ref={nameInput => this.nameInput = nameInput} type="text"/>
+                    </div>
+                    <div className="form-group">
+                        <label>Price</label> 
+                        <input className="form-control" ref={priceInput => this.priceInput = priceInput} type="text"/>
+                    </div>
+                    <button className="btn btn-primary">Add</button>                
                 </div>
-                <div>
-                    <label>Price </label> 
-                    <input ref={priceInput => this.priceInput = priceInput} type="text"/>
-                </div>
-                <button>Add</button>
-                <hr/>
             </form>
         )
     }

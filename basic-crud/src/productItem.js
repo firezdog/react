@@ -31,30 +31,32 @@ class ProductItem extends Component {
                     {
                         this.state.isEdit
                         ? (
-                            <form onSubmit={this.onSubmit}>
-                                <h3>Edit {name}</h3>
-                                <input type="hidden" ref={idInput => this.idInput = idInput} value={name}/>
-                                <div>
-                                    <label>Name </label>
-                                    <input ref={nameInput => this.nameInput = nameInput} defaultValue={name} type="text" />
+                            <form className="card" onSubmit={this.onSubmit}>
+                                <h3 className="card-header">Edit {name}</h3>
+                                <div class="card-body">
+                                    <input type="hidden" ref={idInput => this.idInput = idInput} value={name}/>
+                                    <div className="form-group">
+                                        <label>Name </label>
+                                        <input className="form-control" ref={nameInput => this.nameInput = nameInput} defaultValue={name} type="text" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Price </label>
+                                        <input className="form-control" ref={priceInput => this.priceInput = priceInput} defaultValue={price} type="text" />
+                                    </div>
+                                    <button className="btn btn-info">Edit</button>
                                 </div>
-                                <div>
-                                    <label>Price </label>
-                                    <input ref={priceInput => this.priceInput = priceInput} defaultValue={price} type="text" />
-                                </div>
-                                <button>Edit</button>
-                                <hr />
                             </form>
                         )
                         : (
-                            <div>
-                                <span>{name}</span>
-                                {` | `}
-                                <span>{price}</span>
-                                {` | `}
-                                <button onClick={() => this.onEdit()}>Edit</button>
-                                {` | `}
-                                <button onClick={() => onDelete(name)}>Delete</button>
+                            <div className="card">    
+                                <div className="card-header">{name}</div>
+                                <div className="card-body">
+                                    <p>${price}</p>
+                                    <div className="row">
+                                        <div className="col-6"><button className="btn btn-info" onClick={() => this.onEdit()}>Edit</button></div>
+                                        <div className="col-6"><button className="btn btn-info" onClick={() => onDelete(name)}>Delete</button></div>
+                                    </div>
+                                </div>                                
                             </div>
                         )
                     }
